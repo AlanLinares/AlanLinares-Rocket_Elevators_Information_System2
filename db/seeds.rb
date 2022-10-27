@@ -7,3 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 AdminUser.create!(email: 'test@test.com', password: 'password', password_confirmation: 'password') 
+require 'csv'
+csvfile = File.read(Rails.root.join('lib', 'seeds', 'Employee_List.csv'))
+table = CSV.parse(csvfile, headers: true)
+table.each do |row|
+    Employee.create!(
+        last_name: row['last_name'], 
+        title: row['title'], 
+        first_name: row['first_name'],
+        email: row['email'], 
+    )
+    User.create(
+        email: row['email'],
+        password: 'password',
+    )
+    AdminUser.create(
+        email: row['email'],
+        password: 'password',
+    )
+end
+    puts "//*******************Employee Table seeded*******************"
