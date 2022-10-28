@@ -116,7 +116,7 @@
 								data-endspeed="300"
 								style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
 								<%# ch HREF QUOTEFORM.HTML routes %>
-									<a class="btn btn-default btn-lg" href="quoteform.html.erb">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
+									<a class="btn btn-default btn-lg" href="quoteform.html">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
 							</div>
 						</li>
 
@@ -331,18 +331,18 @@
 			</section>
 			<!-- /Services -->
 
-			
+	
 
 
 			<!-- Parallax -->
-			<section class="parallax parallax-1" style="background-image: url('assets/images/34-min.jpg');">
+			<section class="parallax parallax-1" style="background-image: url(<%= asset_path '34-min.jpg' %>)">
 				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
 				<div class="container">
 
 					<div class="text-center">
 						<h2 class="fs-40 fw-300"> BUILDING ELEVATORS SINCE 1976</h2>
-						<a class="btn btn-default btn-lg" href="quote.html">REQUEST A QUOTE <i class="fa fa-angle-right"></i></a> 
+						<a class="btn btn-default btn-lg" href="quoteform.html">REQUEST A QUOTE <i class="fa fa-angle-right"></i></a> 
 						&nbsp; OR &nbsp; 
 						<a class="btn btn-primary btn-lg" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
@@ -796,7 +796,8 @@
 											</span>
 										</span>
 
-										<img class="img-fluid" src="assets/images/residential3.jpg" style = " width: 387px;  height:193px; " alt="">
+										<%# <img class="img-fluid" src="assets/images/residential3.jpg" style = " width: 387px;  height:193px; " alt=""> %>
+										<%= image_tag "residential3.jpeg", class: "img-fluid", width: 387, height: 193%>
 									</figure>
 
 									<div class="item-box-desc">
