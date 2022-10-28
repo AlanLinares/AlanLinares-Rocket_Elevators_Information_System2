@@ -4,17 +4,16 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-
-root "pages#index"
-get "/index", to: "pages#index"
-
-
 post '/quote', to: 'quotes#create'
 
+root "pages#index"
 
+get "/index", to: "pages#index"
 
 get "/commercial", to:"pages#commercial"
+
 get "/quoteform", to:"pages#quoteform"
+
 get "/residential", to:"pages#residential"
 
 

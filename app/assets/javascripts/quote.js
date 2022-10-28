@@ -6,6 +6,9 @@
  * 
  * 
  */
+
+ document.addEventListener('DOMContentLoaded', function(e) { 
+
  const radio = document.getElementById("radio-buttons")
  const pricing = document.getElementById("pricing-buttons")
 
@@ -372,4 +375,4 @@ hideAll();
         outputActivity.value = inputActivity.value;
     })
 
-
+})
