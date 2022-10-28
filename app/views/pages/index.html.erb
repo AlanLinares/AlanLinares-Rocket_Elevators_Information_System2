@@ -174,7 +174,8 @@
 								data-endelementdelay="0.1"
 								data-endspeed="500"
 								style="z-index: 4; max-width: auto;">
-									<a class="btn btn-primary btn-lg" href="index-residential.html">RESIDENTIAL SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
+									<a class="btn btn-primary btn-lg" href="residential.html">RESIDENTIAL SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
+									
 							</div>
 							<!--
 							<div class="tp-caption sfb tp-resizeme"
@@ -312,7 +313,7 @@
 							
 							<h3 class="mt-10">Residential Services</h3>
 							<p>We can match any type of wall style and material.</p>
-							<a href="index-residential.html" class="btn btn-default">Residential Services</a>
+							<a href="residential.html" class="btn btn-default">Residential Services</a>
 						</div>
 
 						<div class="col-sm-4">
@@ -321,7 +322,7 @@
 							
 							<h3 class="mt-10">Corporate Solutions</h3>
 							<p>We have solutions for all you corporate needs.</p>
-							<a href="index-commercial.html" class="btn btn-default">Corporate Services</a>
+							<a href="commercial.html" class="btn btn-default">Corporate Services</a>
 						</div>
 
 					</div>
@@ -341,7 +342,7 @@
 
 					<div class="text-center">
 						<h2 class="fs-40 fw-300"> BUILDING ELEVATORS SINCE 1976</h2>
-						<a class="btn btn-default btn-lg" href="index-quote.html">REQUEST A QUOTE <i class="fa fa-angle-right"></i></a> 
+						<a class="btn btn-default btn-lg" href="quote.html">REQUEST A QUOTE <i class="fa fa-angle-right"></i></a> 
 						&nbsp; OR &nbsp; 
 						<a class="btn btn-primary btn-lg" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
@@ -364,8 +365,8 @@
 					<div class="text-center">
 						<ul class="nav nav-pills mix-filter mb-60">
 							<li data-filter="all" class="filter active"><a href="#">All</a></li>
-							<li data-filter="residential" class="filter"><a href="index-residential.html">Residential</a></li>
-							<li data-filter="commercial" class="filter"><a href="index-commercial.html">Commercial</a></li>
+							<li data-filter="residential" class="filter"><a href="residential.html">Residential</a></li>
+							<li data-filter="commercial" class="filter"><a href="commercial.html">Commercial</a></li>
 							<li data-filter="award" class="filter"><a href="#">Award</a></li>
 						</ul>
 					</div>
@@ -434,7 +435,8 @@
 											</span>
 										</span>
 
-										<img class="img-fluid" src="assets/images/AdobeStock_42622540.jpeg" style = " width: 387px;  height:193px; " alt="">
+										<%# <img class="img-fluid" src="assets/images/AdobeStock_42622540.jpeg" style = " width: 387px;  height:193px; " alt=""> %>
+										<%= image_tag "AdobeStock_42622540.jpeg", width: 387, height:193, class: "img-fluid", alt: ""%>
 									</figure>
 
 									<div class="item-box-desc">
