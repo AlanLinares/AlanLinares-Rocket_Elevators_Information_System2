@@ -7,9 +7,93 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+     <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left scrollTo" href="#top">
+							<%# <img src="/assets/images/R2.png" alt="" /> %>
+              <%=image_tag "R2", class: "logo float-left scrollTo", alt:""%>
+						</a>
+						
+						<!-- 
+							Top Nav 
+						
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+							<nav class="nav-main">
+
+						
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li class="active">
+                  <!-- HOME -->
+										<a class = "scrollTo" href="#top">
+											HOME
+										</a>
+									</li>
+									<li><!-- SERVICES -->
+										<a href="#services">
+											SERVICES
+										</a>
+									</li>
+									<li><!-- WORK -->
+										<a href="#work">
+											WORK
+										</a>
+									</li>
+									<li><!-- NEWS -->
+										<a href="#news">
+											NEWS
+										</a>
+									</li>
+							
+									<li>
+                  <!-- CLIENTS -->
+										<a href="#clients">
+											CLIENTS
+
+										</a>
+									</li>
+									<!--QUOTE-->
+									
+									<li>
+                  <%# ch HREF quoteform ROUTE done %>
+										<%# <a class="external" href="quoteform.html.erb"> %>
+                  
+                    <%= link_to 'QUOTE FORM', quoteform_path, class:"external" %>
+											
+										</a>
+									</li>
+									
+									<li>
+                  <!-- CONTACT -->
+										<a href="#contact">
+											CONTACT
+										</a>
+									</li>
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
   </head>
 
   <body>
+ 
     <%= yield %>
   </body>
 </html>
