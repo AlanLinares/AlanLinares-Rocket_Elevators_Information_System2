@@ -1,4 +1,5 @@
 class QuotesController < ApplicationController
+
   # before_action :set_quote, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 
@@ -70,26 +71,28 @@ class QuotesController < ApplicationController
 #     end
 # end
 
-def create 
+def create
   quote = Quote.create!(
-  building_type: params[:building_type],
-  # number_of_apartments: ['number_of_apartments'], 
-  # number_of_floors: params[:number_of_floors],
-  # number_of_basements: ['number_of_basements'],
-  # number_of_companies: ['number_of_companies'],
-  # number_of_parking_spots: ['number_of_parking_spots'],
-  # number_of_elevators: ['number_of_elevators'],
-  # number_of_corporations: ['number_of_corporations'],  
-  # max_occupancy: ['max_occupancy'],
-  # business_hours: ['business_hours'],
-  # quality: ['quality'],
-  # elevator_amount: ['elevator_amount'],
-  # elevator_unit_price: ['elevator_unit_price'],
-  # elevator_total_price: ['elevator_tota;_price'],
-  # installation_fees: ['installation_fees'],
-  # final_price: ['final_price'],
-)
-  redirect_to('/index')
-  end
+
+    building_type: params[:building_type],
+    number_of_apartments: params[:number_of_apartments], 
+    number_of_floors: params[:number_of_floors],
+    number_of_basements: params[:number_of_basements],
+    number_of_companies: params[:number_of_companies],
+    number_of_parking_spots: params[:number_of_parking_spots],
+    number_of_elevators: params[:number_of_elevators],
+    number_of_corporations: params[:number_of_corporations],  
+    max_occupancy: params[:max_occupancy],
+    business_hours: params[:business_hours],
+    quality: params[:quality],
+    elevator_amount: params[:elevator_amount],
+    elevator_unit_price: params[:elevator_unit_price],
+    elevator_total_price: params[:elevator_total_price],
+    installation_fees: params[:installation_fees],
+    final_price: params[:final_price],
+  )
+redirect_to('/Quote')
+end
+
 
 end
