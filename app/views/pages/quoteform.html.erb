@@ -1,10 +1,12 @@
 <!-- Radio Button choices -->
 		<div class = "container-fluid">
 			<div class="heading-title text-center">
-				<h2>What type of building did you want to quote?</h2>
+				<h2>Please tell us what type of building you have:</h2>
 			</div>
 			<form>
-				
+
+				<form action="/quote" method="post" class="text-center">
+
 					<div id = "radio-buttons" class ="row ">
 						<div class = "col-md-3 align-center">
 							<div class ="form-check">
@@ -54,52 +56,52 @@
 				<!--residential inputs begin-->
 				<div id = "apartment-box" class = "mb-50">
 					<label for = "apartments" class = "form-label">Number of apartments in the building</label>
-					<input type = "number" class = "form-control" id = "apartments" aria-describedby="apartment-help" min = "0">
+					<input type = "number" class = "form-control" id = "apartments" aria-describedby="apartment-help" min = "0" name ="number_of_apartments">
 					<div id = "apartment-help" class = "form-text">Please enter the number of apartments in the building</div>
 				</div>
 				<div id = "floors-box" class = "mb-50">
 					<label for = "floors" class = "form-label">Number of floor in the building, not including basements.</label>
-					<input type = "number" class = "form-control" id = "floors" aria-describedby="apartment-help" min = "1">
+					<input type = "number" class = "form-control" id = "floors" name="number_of_floors" aria-describedby="apartment-help" min = "1">
 					<div id = "apartment-help" class = "form-text">Please enter the number of floors, no basements</div>
 				</div>
 				<div id = "basements-box" class = "mb-50">
 					<label for = "basements" class = "form-label">Number of basements in the building</label>
-					<input type = "number" class = "form-control" id = "basements" aria-describedby="apartment-help" min = "0">
+					<input type = "number" class = "form-control" id = "basements" aria-describedby="apartment-help" min = "0" name="number_of_basements">
 					<div id = "apartment-help" class = "form-text">Please enter the number of basements in the building</div>
 				</div>
 				<!--residential inputs end-->
 				<!--commercial specific inputs begin-->
 				<div id = "parking-box" class = "mb-50">
 					<label for = "parking" class = "form-label">Number of parking space available</label>
-					<input type = "number" class = "form-control" id = "parking" aria-describedby="apartment-help" min = "0">
+				<input type = "number" class = "form-control" id = "parking" aria-describedby="apartment-help" min = "0" name="number_of_parking_spots" >
 					<div id = "apartment-help" class = "form-text">Please enter the number of parking spaces for the building</div>
 				</div>
 				<div id = "business-box" class = "mb-50">
 					<label for = "business" class = "form-label">Number of distinct businesses</label>
-					<input type = "number" class = "form-control" id = "business" aria-describedby="apartment-help" min ="0">
+					<input type = "number" class = "form-control" id = "business" aria-describedby="apartment-help" min ="0" name="number_of_companies">
 					<div id = "apartment-help" class = "form-text">Please enter the number of distinct businesses in the building</div>
 				</div>
 				<div id = "c-cages-box" class = "mb-50">
 					<label for = "commercial-cages" class = "form-label">Number of elevator cages to be deployed</label>
-					<input type = "number" class = "form-control" id = "commercial-cages" aria-describedby="apartment-help" min = "0">
+					<input type = "number" class = "form-control" id = "commercial-cages" aria-describedby="apartment-help" min = "0" name="number_of_elevators">
 					<div id = "apartment-help" class = "form-text">Please enter the number of elevator cages to be deployed</div>
 				</div>
 				<!--commercial specific inputs end-->
 				<!--corporate specific input begin-->
 				<div id = "tenant-box" class = "mb-50">
 					<label for = "tenant" class = "form-label">Number of separate tenant companies in the building</label>
-					<input type = "number" class = "form-control" id = "tenant" aria-describedby="apartment-help" min = "0">
+					<input type = "number" class = "form-control" id = "tenant" aria-describedby="apartment-help" min = "0" name="number_of_corporations">
 					<div id = "apartment-help" class = "form-text">Please enter the number of separate tenant companies in the building</div>
 				</div>
 				<!--corporate specific input end-->
 				<div id = "occupant-box" class = "mb-50">
 					<label for = "occupant" class = "form-label">Maxiumum number of occupants per floor</label>
-					<input type = "number" class = "form-control" id = "occupant" aria-describedby="apartment-help" min = "0">
+					<input type = "number" class = "form-control" id = "occupant" aria-describedby="apartment-help" min = "0" name="max_occupancy">
 					<div id = "apartment-help" class = "form-text">Please enter the maximum number of occupants per floor</div>
 				</div>
 				<div id = "activity-box" class = "mb-50">
 					<label for = "activity" class = "form-label">Number of hours of activity of the building per day</label>
-					<input type = "number" class = "form-control" id = "activity" aria-describedby="apartment-help" min = "0" max = "24">
+					<input type = "number" class = "form-control" id = "activity" aria-describedby="apartment-help" min = "0" max = "24" name="business_hours">
 					<div id = "apartment-help" class = "form-text">Please enter the maximum number of hours the bulding is active</div>
 				</div>
 			</form>
@@ -150,37 +152,40 @@
 			<!-- Pricing Radio Buttons -->
 					<div id="output-elevator-container" class="mb-3">
             		<label for="output-elevators" class="form-label">Elevators needed </label>
-            		<input type="text" class="form-control" id="output-elevators" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-elevators" name="" placeholder="0" readonly>
         			
 				
 					<div id="output-pricePerElevator-container" class="mb-3">
             		<label for="price-per-elevator" class="form-label">Price per Elevator </label>
-            		<input type="text" class="form-control" id="price-per-elevator" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="price-per-elevator" name="" placeholder="0" readonly>
         			</div>
 				
 					
 					<div id="output-totalPrice-container" class="mb-3">
             		<label for="output-total-price" class="form-label">Total price of Elevators</label>
-            		<input type="text" class="form-control" id="output-total-price" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-total-price" name="" placeholder="0" readonly>
         			</div>
 				
 					
 					<div id="output-fees-container" class="mb-3">
             		<label for="output-installation" class="form-label">Installation Fees </label>
-            		<input type="text" class="form-control" id="output-installation" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-installation" name="" placeholder="0" readonly>
         			</div>
 				
 				
 					<div id="output-finalPrice-container" class="mb-3">
             		<label for="output-final-price" class="form-label">Final Pricing </label>
-            		<input type="text" class="form-control" id="output-final-price" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-final-price" name="" placeholder="0" readonly>
         			</div>
 				<br/>
 				<div>
-                <input type="submit" value="SUBMIT" class="form-control">
+                <br/>
+                <input type="submit" value="CLICK HERE TO SUBMIT" class="form-control">
+                <br/>
                 </div>
                 <br/>
                 <br/>
+                </form>
 			<!---->
 		</div>
 
