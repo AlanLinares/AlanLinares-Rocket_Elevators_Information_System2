@@ -73,7 +73,7 @@ class QuotesController < ApplicationController
 def create 
   quote = Quote.create!(
   building_type: params[:building_type],
-  number_of_apartments: ['number_of_apartments'], 
+  # number_of_apartments: ['number_of_apartments'], 
   # number_of_floors: params[:number_of_floors],
   # number_of_basements: ['number_of_basements'],
   # number_of_companies: ['number_of_companies'],
