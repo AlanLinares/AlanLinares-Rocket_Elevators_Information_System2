@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 root "pages#index"
 get "index", to: "pages#index"
 
+# ch ROUTES
+get "commercial", to:"pages#commercial"
+get "quoteform", to:"pages#quoteform"
+get "residential", to:"pages#residential"
+
+
 end

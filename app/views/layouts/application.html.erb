@@ -21,26 +21,21 @@
 
 						<!-- Logo -->
 						<a class="logo float-left scrollTo" href="#top">
-							<img src="/assets/images/R2.png" alt="" />
+							<%# <img src="/assets/images/R2.png" alt="" /> %>
+              <%=image_tag "R2", class: "logo float-left scrollTo", alt:""%>
 						</a>
 						
 						<!-- 
 							Top Nav 
-							
-							AVAILABLE CLASSES:
-							submenu-dark = dark sub menu
+						
 						-->
 						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
 							<nav class="nav-main">
 
-								<!-- 
-									.nav-onepage
-									Required for onepage navigation links
-									
-									Add .external for an external link!
-								-->
+						
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li class="active"><!-- HOME -->
+									<li class="active">
+                  <!-- HOME -->
 										<a class = "scrollTo" href="#top">
 											HOME
 										</a>
@@ -60,25 +55,22 @@
 											NEWS
 										</a>
 									</li>
-									<!--OVERVIEW-->
-									<!--
-									<li><
-										<a href="#overview">
-											OVERVIEW
-										</a>
-									</li>
-									/-->
+							
 									<li>
                   <!-- CLIENTS -->
 										<a href="#clients">
 											CLIENTS
+
 										</a>
 									</li>
 									<!--QUOTE-->
 									
 									<li>
-										<a class="external" href="index-quote.html">
-											QUOTE
+                  <%# ch HREF quoteform ROUTE done %>
+										<%# <a class="external" href="quoteform.html.erb"> %>
+                  
+                    <%= link_to 'QUOTE FORM', quoteform_path, class:"external" %>
+											
 										</a>
 									</li>
 									
