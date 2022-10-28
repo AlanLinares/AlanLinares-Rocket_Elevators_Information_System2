@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.6'
+gem "bootstrap-sass", "~> 3.3.4"
+gem "font-awesome-sass", "~> 4.3.0"
+gem "jquery-ui-rails"
+gem "bootstrap-social-rails"
+gem "jquery-rails"
+# gem "sass-rails"
 
 gem 'activeadmin'
 
@@ -57,7 +63,7 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.2'
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-bundler', '>= 1.1.0'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano3-puma', '5.2.0'
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
