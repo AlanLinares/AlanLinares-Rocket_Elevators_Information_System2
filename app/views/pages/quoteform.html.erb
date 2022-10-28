@@ -3,14 +3,13 @@
 			<div class="heading-title text-center">
 				<h2>Please tell us what type of building you have:</h2>
 			</div>
-			<form>
+			<form action="/quote" method="post" class="text-center">
+				
 
-				<form action="/quote" method="post" class="text-center">
-
-					<div id = "radio-buttons" class ="row ">
+					<div id = "radio-buttons" class ="row " name="building_type">
 						<div class = "col-md-3 align-center">
 							<div class ="form-check">
-								<input class = "form-check-input" type ="radio" name="radio-select"id = "residential-radio" >
+								<input class = "form-check-input" type ="radio" name ="building_type" id ="residential-radio" value="residential">
 								<label class = "form-check-label" for ="residential-radio" >
 									Residential
 								</label>
@@ -19,7 +18,7 @@
 						</div>
 						<div class = "col-md-3 align-center">
 							<div class ="form-check">
-								<input class = "form-check-input" type ="radio" name="radio-select" id ="commercial-radio">
+								<input class = "form-check-input" type ="radio" name="building_type" id ="commercial-radio" value="commercial">
 								<label class = "form-check-label" for ="commercial-radio" >
 									Commercial
 								</label>
@@ -28,7 +27,7 @@
 						</div>
 						<div class = "col-md-3 align-center">
 							<div class ="form-check">
-								<input class = "form-check-input" type ="radio" name="radio-select" id = "corporate-radio">
+								<input class = "form-check-input" type ="radio" name="building_type" id ="corporate-radio" value="corporate">
 								<label class = "form-check-label" for ="corporate-radio" >
 									Corporate
 								</label>
@@ -37,7 +36,7 @@
 						</div>
 						<div class = "col-md-3 align-center">
 							<div class ="form-check">
-								<input class = "form-check-input" type ="radio" name="radio-select" id = "hybrid-radio">
+								<input class = "form-check-input" type ="radio" name="building_type" id ="hybrid-radio" value="hybrid">
 								<label class = "form-check-label" for ="hybrid-radio" >
 									Hybrid
 								</label>
@@ -45,8 +44,8 @@
 							</div>
 						</div>
 					</div>
-
-			</form>
+				
+			
 		</div>
 			<!-- /Radio Button choices -->
 
@@ -104,7 +103,7 @@
 					<input type = "number" class = "form-control" id = "activity" aria-describedby="apartment-help" min = "0" max = "24" name="business_hours">
 					<div id = "apartment-help" class = "form-text">Please enter the maximum number of hours the bulding is active</div>
 				</div>
-			</form>
+			
 		</div>
 	<!--OUTPUT-->
 		<div id = "output" class = "container">
@@ -114,12 +113,12 @@
 				<div class="heading-title text-center">
 					<h2>What type of service did you need?</h2>
 				</div>
-				<form>
+				
 					
-						<div id = "pricing-buttons" class ="row ">
+						<div id = "pricing-buttons" class ="row " name ="quality">
 							<div class = "col-md-3 align-center">
 								<div class ="form-check">
-									<input class = "form-check-input" type ="radio" name="radio-select"id = "standard-radio" checked>
+									<input class = "form-check-input" type ="radio" name="quality" id ="standard-radio" value="standard" checked>
 									<label class = "form-check-label" for ="standard-radio" >
 										Standard
 									</label>
@@ -128,7 +127,7 @@
 							</div>
 							<div class = "col-md-3 align-center">
 								<div class ="form-check">
-									<input class = "form-check-input" type ="radio" name="radio-select" id ="premium-radio">
+									<input class = "form-check-input" type="radio" name="quality" id ="premium-radio" value="premium">
 									<label class = "form-check-label" for ="premium-radio" >
 										Premium
 									</label>
@@ -137,7 +136,7 @@
 							</div>
 							<div class = "col-md-3 align-center">
 								<div class ="form-check">
-									<input class = "form-check-input" type ="radio" name="radio-select" id = "excelium-radio">
+									<input class = "form-check-input" type ="radio" name="quality" id ="excelium-radio" value="excelium">
 									<label class = "form-check-label" for ="excelium-radio" >
 										Excelium
 									</label>
@@ -147,35 +146,35 @@
 							
 						</div>
 	
-				</form>
+				
 			</div>
 			<!-- Pricing Radio Buttons -->
 					<div id="output-elevator-container" class="mb-3">
             		<label for="output-elevators" class="form-label">Elevators needed </label>
-            		<input type="text" class="form-control" id="output-elevators" name="" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-elevators" name="elevator_amount" placeholder="0" readonly>
         			
 				
 					<div id="output-pricePerElevator-container" class="mb-3">
             		<label for="price-per-elevator" class="form-label">Price per Elevator </label>
-            		<input type="text" class="form-control" id="price-per-elevator" name="" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="price-per-elevator" name="elevator_unit_price" placeholder="0" readonly>
         			</div>
 				
 					
 					<div id="output-totalPrice-container" class="mb-3">
             		<label for="output-total-price" class="form-label">Total price of Elevators</label>
-            		<input type="text" class="form-control" id="output-total-price" name="" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-total-price" name="elevator_total_price" placeholder="0" readonly>
         			</div>
 				
 					
 					<div id="output-fees-container" class="mb-3">
             		<label for="output-installation" class="form-label">Installation Fees </label>
-            		<input type="text" class="form-control" id="output-installation" name="" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-installation" name="installation_fees" placeholder="0" readonly>
         			</div>
 				
 				
 					<div id="output-finalPrice-container" class="mb-3">
             		<label for="output-final-price" class="form-label">Final Pricing </label>
-            		<input type="text" class="form-control" id="output-final-price" name="" placeholder="0" readonly>
+            		<input type="text" class="form-control" id="output-final-price" name="final_price" placeholder="0" readonly>
         			</div>
 				<br/>
 				<div>
@@ -185,7 +184,7 @@
                 </div>
                 <br/>
                 <br/>
-                </form>
+			</form>
 			<!---->
 		</div>
 
