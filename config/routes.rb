@@ -16,5 +16,4 @@ get "/quoteform", to:"pages#quoteform"
 
 get "/residential", to:"pages#residential"
 
-
 end
