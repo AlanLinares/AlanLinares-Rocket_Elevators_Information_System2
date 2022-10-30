@@ -4,16 +4,22 @@ This project is an extension of our Rocket Elevators page. Using a mixture of ea
 
 ###Installation
 
-!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!
-WE NEED TO INSTALL RUBY VERSION 2.7.6
+******IMPORTANT******  
+WE NEED TO INSTALL RUBY VERSION 2.7.6 
+
 WE ALSO NEED TO INSTALL RAILS VERSION 5.2.7
+
+
 Please remember this when following the installation guides
-!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!l
+
+   *********IMPORTANT*********
 
 If you are using a Windows computer then you will need to install Unbuntu to run the code and install the other things we need
+
 On windows we first need to install WSL2
-https://www.howtogeek.com/744328/how-to-install-the-windows-subsystem-for-linux-on-windows-11/ use this link to install WSL on Windows 11
-https://www.omgubuntu.co.uk/how-to-install-wsl2-on-windows-10 use this link to install WSL on Windows 10
+https://www.howtogeek.com/744328/how-to-install-the-windows-subsystem-for-linux-on-windows-11/   **use this link to install WSL on Windows 11**
+
+https://www.omgubuntu.co.uk/how-to-install-wsl2-on-windows-10 **use this link to install WSL on Windows 10**
 
 Then download and install Unbuntu
 https://apps.microsoft.com/store/detail/ubuntu-2204-lts/9PN20MSR04DW?hl=en-ca&gl=CA
