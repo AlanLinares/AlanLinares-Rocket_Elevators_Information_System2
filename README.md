@@ -30,7 +30,7 @@ https://gorails.com/setup/ubuntu/22.04
 After installing Rails you can use this link to download and install MySQL
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04
 
-If you are using a Mac computer you don't need Unbuntu. You can follow this installation guide to install Ruby, Rails and MySQL. 
+**If you are using a Mac computer you don't need Unbuntu.** You can follow this installation guide to install Ruby, Rails and MySQL. 
 https://gorails.com/setup/osx/12-monterey
 
 The installation guide for both Windows and Mac computers will also have a guide to configure your github account. 
