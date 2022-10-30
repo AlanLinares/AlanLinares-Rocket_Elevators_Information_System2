@@ -57,9 +57,11 @@
 										</a>
 									</li>
 							
+
 									<li>
                   <!-- CLIENTS -->
 										<a href="/index#clients">
+
 											CLIENTS
 
 										</a>
@@ -75,19 +77,40 @@
 										</a>
 									</li>
 									
-									<li>
-                  <!-- CONTACT -->
+									<li><!-- CONTACT -->
 										<a href="#contact">
 											CONTACT
 										</a>
 									</li>
-
-									<li>
-                  <!-- LOGIN -->
-										<a href="/admin">
-											ADMIN LOGIN
-										</a>
-									</li>
+									<% if user_signed_in? %>
+										<li><!-- SIGN OUT -->
+											<a <%=link_to "SIGN OUT", destroy_user_session_path, method: :delete %>
+												
+											</a>
+										</li>
+										<li><!-- EDIT-->
+											<a href=<%= edit_user_registration_path%> >
+												EDIT
+											</a>
+										</li>
+									<%else %>
+										<li><!-- SIGN IN -->
+											<a href=<%=new_user_session_path%> >
+												SIGN IN
+											</a>
+										</li>
+										<li><!-- SIGN UP -->
+											<a href=<%= new_user_registration_path%> >
+												SIGN UP
+											</a>
+										</li>
+										
+										<li><!-- ADMIN LOGIN -->
+											<a href="/admin">
+												ADMIN LOGIN
+											</a>
+										</li>
+									<% end %>
 								</ul>
 
 							</nav>
@@ -103,6 +126,9 @@
   <body>
  
     <%= yield %>
+	<p class="notice"><%=notice %></p>
+	<p class="alert"><%=alert %></p>
+
 	<!-- FOOTER -->
 			<footer id="footer">
 				<div class="container">
