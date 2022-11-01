@@ -8,6 +8,8 @@
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 AdminUser.create!(email: 'test@test.com', password: 'password', password_confirmation: 'password') 
 require 'csv'
+require 'faker'
+
 csvfile = File.read(Rails.root.join('lib', 'seeds', 'Employee_List.csv'))
 table = CSV.parse(csvfile, headers: true)
 table.each do |row|
@@ -27,3 +29,21 @@ table.each do |row|
     )
 end
     puts "//*******************Employee Table seeded*******************"
+
+100.times do 
+    Lead.create!(
+        full_name: Faker::Name.name, 
+        company_name: Faker::Company.name, 
+        email: Faker::Internet.email,
+        phone: Faker::PhoneNumber.cell_phone,
+        project_name: Faker::DcComics.hero,
+        project_description: Faker::Hipster.sentence, 
+        department_of_elevators: ["sales", "support", "admin"].sample, 
+        message: Faker::Hipster.sentence, 
+        attachment: "change to binary soon", 
+        date_of_contact_request: Faker::Time.between(3.years.ago, Date.today)
+        
+    )
+    end
+puts "//***************Leads Table seeded with #{Lead.count} records*****************"
+
