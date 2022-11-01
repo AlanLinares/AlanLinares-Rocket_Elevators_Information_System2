@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_01_164717) do
+ActiveRecord::Schema.define(version: 2022_11_01_185953) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_164717) do
     t.bigint "employees_id"
     t.bigint "buildings_id"
     t.bigint "columns_id"
-    t.string "type"
+    t.string "building_type"
     t.string "status"
     t.string "date_of_commission"
     t.string "date_of_last_inspection"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_164717) do
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "batteries_id"
-    t.string "type"
+    t.string "building_type"
     t.string "number_of_floors_served"
     t.string "status"
     t.string "information"
@@ -111,6 +111,22 @@ ActiveRecord::Schema.define(version: 2022_11_01_164717) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
+  end
+
+  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.bigint "column_id"
+    t.string "serial_numbers"
+    t.string "model"
+    t.string "building_type"
+    t.string "status"
+    t.string "date_of_commissioning"
+    t.string "date_of_last_inspection"
+    t.string "certificate_of_inspection"
+    t.string "information"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["column_id"], name: "index_elevators_on_column_id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -177,5 +193,6 @@ ActiveRecord::Schema.define(version: 2022_11_01_164717) do
   add_foreign_key "buildings", "addresses"
   add_foreign_key "columns", "batteries", column: "batteries_id"
   add_foreign_key "customers", "users"
+  add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
 end
