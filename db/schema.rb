@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_01_185953) do
+ActiveRecord::Schema.define(version: 2022_11_01_191844) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -71,10 +71,15 @@ ActiveRecord::Schema.define(version: 2022_11_01_185953) do
   end
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "information_key"
-    t.string "value"
+    t.bigint "building_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "number_of_floors"
+    t.string "building_type"
+    t.string "architecture"
+    t.string "max_occupancy"
+    t.string "construction_year"
+    t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -197,6 +202,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_185953) do
 
   add_foreign_key "batteries", "buildings", column: "buildings_id"
   add_foreign_key "batteries", "employees", column: "employees_id"
+  add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "columns", "batteries", column: "batteries_id"
   add_foreign_key "customers", "users"
