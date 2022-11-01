@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_10_31_205431) do
 
+ActiveRecord::Schema.define(version: 2022_10_31_192432) do
+
+
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -26,6 +29,20 @@ ActiveRecord::Schema.define(version: 2022_10_31_205431) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "type_of_address"
+    t.string "status"
+    t.string "entity"
+    t.string "number_and_street"
+    t.string "suite_or_apartment"
+    t.string "city"
+    t.string "postal_code"
+    t.string "country"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+ 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -46,6 +63,16 @@ ActiveRecord::Schema.define(version: 2022_10_31_205431) do
     t.string "certificate_of_operations"
     t.string "information"
     t.string "notes"
+
+  create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "address"
+    t.string "admin_full_name"
+    t.string "admin_email"
+    t.string "admin_phone"
+    t.string "tech_contact_full_name"
+    t.string "tech_contact_email"
+    t.string "tech_contact_phone"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,6 +85,23 @@ ActiveRecord::Schema.define(version: 2022_10_31_205431) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "customer_creation_date"
+    t.string "company_name"
+    t.string "company_address"
+    t.string "contact_full_name"
+    t.string "company_contact_phone"
+    t.string "company_contact_email"
+    t.string "company_description"
+    t.string "service_tech_full_name"
+    t.string "service_tech_phone"
+    t.string "tech_manager_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
+ 
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -69,6 +113,21 @@ ActiveRecord::Schema.define(version: 2022_10_31_205431) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "full_name"
+    t.string "company_name"
+    t.string "email"
+    t.string "phone"
+    t.string "project_name"
+    t.string "project_description"
+    t.string "department_of_elevators"
+    t.string "message"
+    t.string "attachment"
+    t.string "date_of_contact_request"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -104,5 +163,6 @@ ActiveRecord::Schema.define(version: 2022_10_31_205431) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "customers", "users"
   add_foreign_key "employees", "users"
 end
