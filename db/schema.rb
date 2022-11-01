@@ -70,6 +70,13 @@ ActiveRecord::Schema.define(version: 2022_11_01_185953) do
     t.index ["employees_id"], name: "index_batteries_on_employees_id"
   end
 
+  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "information_key"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "address_id"
     t.string "address"
