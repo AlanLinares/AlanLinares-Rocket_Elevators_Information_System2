@@ -47,3 +47,25 @@ end
     end
 puts "//***************Leads Table seeded with #{Lead.count} records*****************"
 
+jsonfile = File.read(Rails.root.join('lib', 'seeds', 'addresses.json'))
+data_hash = JSON.parse(jsonfile)
+randomarray = Array.new(data_hash['addresses'].count - 1) {|e| e += 1};
+arandom = randomarray.shuffle;
+address_counter = 0;
+(data_hash['addresses'].count-1).times do
+    thisaddress = data_hash['addresses'][arandom[address_counter]]
+    Address.create!(
+        type_of_address: ["Home", "Business", "Shipping", "Billing"].sample, 
+        status: ["verified", "unverified",].sample, 
+        entity: ["Business", "Personal"].sample, 
+        number_and_street: thisaddress["address1"], 
+        suite_or_apartment: thisaddress["address2"], 
+        city: thisaddress["city"], 
+        postal_code: thisaddress["postalCode"], 
+        country: "USA", 
+        notes: Faker::Hipster.sentence
+
+    ) 
+    address_counter += 1
+end
+puts "//***************Address Table seeded with #{Address.count} records*****************"
