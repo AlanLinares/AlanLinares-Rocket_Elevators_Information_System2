@@ -13,6 +13,8 @@ gem 'activeadmin'
 
 gem 'devise'
 
+gem 'faker'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 # Use mysql as the database for Active Record
