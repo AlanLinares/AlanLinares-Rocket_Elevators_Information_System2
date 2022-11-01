@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_31_205431) do
-
-ActiveRecord::Schema.define(version: 2022_10_31_192432) do
-
+ActiveRecord::Schema.define(version: 2022_11_01_165419) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -42,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_10_31_192432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
- 
+
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -63,6 +60,9 @@ ActiveRecord::Schema.define(version: 2022_10_31_192432) do
     t.string "certificate_of_operations"
     t.string "information"
     t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "address"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2022_10_31_192432) do
     t.string "tech_contact_full_name"
     t.string "tech_contact_email"
     t.string "tech_contact_phone"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,6 +84,7 @@ ActiveRecord::Schema.define(version: 2022_10_31_192432) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "customer_creation_date"
@@ -101,7 +101,20 @@ ActiveRecord::Schema.define(version: 2022_10_31_192432) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
- 
+  end
+
+  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "serial_numbers"
+    t.string "model"
+    t.string "type"
+    t.string "status"
+    t.string "date_of_commissioning"
+    t.string "date_of_last_inspection"
+    t.string "certificate_of_inspection"
+    t.string "information"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
