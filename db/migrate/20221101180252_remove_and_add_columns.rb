@@ -14,11 +14,11 @@ class RemoveAndAddColumns < ActiveRecord::Migration[5.2]
   end
   
   def change
-    add_column :batteries, :building_type, :string, after: :columns_id
+    add_column :batteries, :building_type, :string, after: :column_id
   end
 
   def change
-    add_column :columns, :building_type, :string, after: :batteries_id
+    add_column :columns, :building_type, :string, after: :battery_id
   end
 
 
