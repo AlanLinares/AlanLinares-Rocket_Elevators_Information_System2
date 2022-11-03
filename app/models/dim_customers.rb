@@ -1,0 +1,3 @@
+class DimCustomers < ApplicationRecord
+
+end
