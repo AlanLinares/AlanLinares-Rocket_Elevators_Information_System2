@@ -13,17 +13,21 @@ require 'faker'
 csvfile = File.read(Rails.root.join('lib', 'seeds', 'Employee_List.csv'))
 table = CSV.parse(csvfile, headers: true)
 table.each do |row|
-    Employee.create!(
-        last_name: row['last_name'], 
-        title: row['title'], 
-        first_name: row['first_name'],
-        email: row['email'], 
-    )
-    User.create(
+    user = User.create!(
         email: row['email'],
         password: 'password',
     )
-    AdminUser.create(
+ 
+    Employee.create!(
+        
+        last_name: row['last_name'], 
+        title: row['title'], 
+        first_name: row['first_name'],
+        email: row['email'],
+        user: user 
+    )
+
+    AdminUser.create!(
         email: row['email'],
         password: 'password',
     )
@@ -52,6 +56,7 @@ data_hash = JSON.parse(jsonfile)
 randomarray = Array.new(data_hash['addresses'].count - 1) {|e| e += 1};
 arandom = randomarray.shuffle;
 address_counter = 0;
+
 (data_hash['addresses'].count-1).times do
     thisaddress = data_hash['addresses'][arandom[address_counter]]
     Address.create!(
@@ -69,3 +74,89 @@ address_counter = 0;
     address_counter += 1
 end
 puts "//***************Address Table seeded with #{Address.count} records*****************"
+
+record = Address.first.id 
+counter = 0
+20.times do
+    user = User.create(
+        email: Faker::Internet.email,
+        password: 'password',
+    )
+
+    Customer.create!(
+        user: user, 
+        customer_creation_date: Faker::Date.between(3.years.ago, Date.today),
+        company_name: (Faker::Company.name + Faker::Company.suffix),
+        address_id: record + counter, 
+        contact_full_name: Faker::Name.unique.name,
+        company_contact_phone: Faker::PhoneNumber.cell_phone,
+        company_contact_email: Faker::Internet.email,
+        # company_description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
+        service_tech_full_name: Faker::Name.unique.name,
+        service_tech_phone: Faker::PhoneNumber.cell_phone,
+        tech_manager_email: Faker::Internet.email
+    )
+    counter += 1
+end
+puts "//***************Customer Table seeded with #{Customer.count} records*****************"
+Customer.all.each do |cust|
+
+rand(1..2).times do
+    Building.create!(
+        customer: cust,
+        address_id: record + counter,
+        admin_full_name: Faker::Name.unique.name,
+        admin_email: Faker::Internet.email,
+        admin_phone: Faker::PhoneNumber.cell_phone,
+        tech_contact_full_name: Faker::Name.unique.name,
+        tech_contact_email: Faker::Internet.email,
+        tech_contact_phone: Faker::PhoneNumber.cell_phone,
+    )
+    counter += 1
+    end
+
+end
+puts "//***************Building Table seeded with #{Building.count} records*****************"
+
+# 100.times do
+#     Building_Detail.create!(
+#         # building_id
+#         # number_of_floors:
+#         # building_type: 
+#         architecture: ["Italianate", "Greek Revival", "Gothic Revival", "Modern", "Federal"].sample,
+#         max_occupancy: rand().to_s,
+#         construction_year: rand(1920..2020).to_s 
+
+#     )  
+
+# end
+puts "//***************Building_Details Table seeded with #{Building_Detail.count} records*****************"
+
+Battery.create!(
+    
+    building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
+    status: ["Running"],
+    date_of_commission: Faker::Date.between(3.years.ago, Date.today),
+    date_of_last_inspection: Faker::Date.between(2.years.ago, Date.today),
+    # certificate_of_operations:
+
+)
+
+end
+# puts "//***************Battery Table seeded with #{Battery.count} records*****************"
+
+
+# Column.create!(
+
+# )
+
+# end
+# puts "//***************Column Table seeded with #{Column.count} records*****************"
+
+# Elevator.create!(
+
+# )
+
+# end
+# puts "//***************Elevator Table seeded with #{Elevator.count} records*****************"
+

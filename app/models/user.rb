@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :employee
   has_one :customer
+
+  # accepts_nested_attributes_for :employee, :customer
 end
 
 

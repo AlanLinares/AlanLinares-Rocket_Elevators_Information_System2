@@ -1,4 +1,6 @@
 class Column < ApplicationRecord
-    belong_to: battery
+    belongs_to: battery
     has_many: elevators
+
+    # accepts_nested_attributes_for :battery, :elevators
 end
