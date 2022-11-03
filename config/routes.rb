@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
 post '/quote', to: 'quotes#create'
 
+# TODO post for leads; DONE
+post '/leads', to: 'leads#create'
+
+
 root "pages#index"
 
 get "/index", to: "pages#index"

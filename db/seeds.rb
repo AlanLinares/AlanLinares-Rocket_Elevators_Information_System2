@@ -143,6 +143,9 @@ Battery.create!(
 )
 
 end
+
+
+
 # puts "//***************Battery Table seeded with #{Battery.count} records*****************"
 
 
@@ -159,4 +162,28 @@ end
 
 # end
 # puts "//***************Elevator Table seeded with #{Elevator.count} records*****************"
+
+
+100.times do
+    Quote.create!(
+    
+      building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
+      number_of_apartments: 
+      number_of_floors: 
+      number_of_basements: 
+      number_of_companies: 
+      number_of_parking_spots: 
+      number_of_elevators: 
+      number_of_corporations: 
+      max_occupancy: 
+      business_hours: 
+      quality:["Standard", "Premium", "Excelium"].sample,
+      elevator_amount: 
+      elevator_unit_price: 
+      elevator_total_price: 
+      installation_fees: 
+      final_price: 
+    )
+end
+puts "//***************Quote Table seeded with #{Quote.count} records*****************"
 
