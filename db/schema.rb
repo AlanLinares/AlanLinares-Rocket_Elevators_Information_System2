@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_03_142246) do
+ActiveRecord::Schema.define(version: 2022_11_03_164615) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -52,9 +52,11 @@ ActiveRecord::Schema.define(version: 2022_11_03_142246) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "employees_id"
-    t.bigint "buildings_id"
+
+  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.bigint "employee_id"
+    t.bigint "building_id"
+
     t.bigint "columns_id"
     t.string "building_type"
     t.string "status"
@@ -65,20 +67,17 @@ ActiveRecord::Schema.define(version: 2022_11_03_142246) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buildings_id"], name: "index_batteries_on_buildings_id"
+    t.index ["building_id"], name: "index_batteries_on_building_id"
     t.index ["columns_id"], name: "index_batteries_on_columns_id"
-    t.index ["employees_id"], name: "index_batteries_on_employees_id"
+    t.index ["employee_id"], name: "index_batteries_on_employee_id"
   end
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "building_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "number_of_floors"
-    t.string "building_type"
-    t.string "architecture"
-    t.string "max_occupancy"
-    t.string "construction_year"
+    t.string "value"
+    t.string "infokey"
     t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
@@ -98,8 +97,10 @@ ActiveRecord::Schema.define(version: 2022_11_03_142246) do
     t.index ["customer_id"], name: "index_buildings_on_customer_id"
   end
 
-  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "batteries_id"
+
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.bigint "battery_id"
+
     t.string "building_type"
     t.string "number_of_floors_served"
     t.string "status"
@@ -107,7 +108,7 @@ ActiveRecord::Schema.define(version: 2022_11_03_142246) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["batteries_id"], name: "index_columns_on_batteries_id"
+    t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -204,12 +205,12 @@ ActiveRecord::Schema.define(version: 2022_11_03_142246) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "batteries", "buildings", column: "buildings_id"
-  add_foreign_key "batteries", "employees", column: "employees_id"
+  add_foreign_key "batteries", "buildings"
+  add_foreign_key "batteries", "employees"
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "buildings", "customers"
-  add_foreign_key "columns", "batteries", column: "batteries_id"
+  add_foreign_key "columns", "batteries"
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"

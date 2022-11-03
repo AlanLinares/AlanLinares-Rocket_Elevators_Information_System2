@@ -77,6 +77,7 @@ puts "//***************Address Table seeded with #{Address.count} records*******
 
 record = Address.first.id 
 counter = 0
+
 20.times do
     user = User.create(
         email: Faker::Internet.email,
@@ -99,69 +100,98 @@ counter = 0
     counter += 1
 end
 puts "//***************Customer Table seeded with #{Customer.count} records*****************"
+
+
 Customer.all.each do |cust|
 
-rand(1..2).times do
-    Building.create!(
-        customer: cust,
-        address_id: record + counter,
-        admin_full_name: Faker::Name.unique.name,
-        admin_email: Faker::Internet.email,
-        admin_phone: Faker::PhoneNumber.cell_phone,
-        tech_contact_full_name: Faker::Name.unique.name,
-        tech_contact_email: Faker::Internet.email,
-        tech_contact_phone: Faker::PhoneNumber.cell_phone,
-    )
-    counter += 1
-    end
+    rand(1..2).times do
+        Building.create!(
+            customer: cust,
+            address_id: record + counter,
+            admin_full_name: Faker::Name.unique.name,
+            admin_email: Faker::Internet.email,
+            admin_phone: Faker::PhoneNumber.cell_phone,
+            tech_contact_full_name: Faker::Name.unique.name,
+            tech_contact_email: Faker::Internet.email,
+            tech_contact_phone: Faker::PhoneNumber.cell_phone,
+        )
+        counter += 1
+        end
 
 end
 puts "//***************Building Table seeded with #{Building.count} records*****************"
 
-# 100.times do
-#     Building_Detail.create!(
-#         # building_id
-#         # number_of_floors:
-#         # building_type: 
-#         architecture: ["Italianate", "Greek Revival", "Gothic Revival", "Modern", "Federal"].sample,
-#         max_occupancy: rand().to_s,
-#         construction_year: rand(1920..2020).to_s 
+Building.all.each do |b|
 
-#     )  
+    BuildingDetail.create!(
+        building: b,
+        infokey: ["floors", "max_occupants", "Construction_year"].sample,
+        value: [rand(), Faker::Date.between(2.years.ago, Date.today)].sample
+        
+    )  
 
-# end
-puts "//***************Building_Details Table seeded with #{Building_Detail.count} records*****************"
+end
+puts "//***************Building_Details Table seeded with #{BuildingDetail.count} records*****************"
 
-Battery.create!(
+Building.all.each do |b|
     
-    building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
-    status: ["Running"],
-    date_of_commission: Faker::Date.between(3.years.ago, Date.today),
-    date_of_last_inspection: Faker::Date.between(2.years.ago, Date.today),
-    # certificate_of_operations:
+    rand(1..2).times do
+        Battery.create!(
+            building: b,
+            employee_id: Faker::Number.between(Employee.first.id, (Employee.first.id+Employee.count-1)), 
+            building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
+            status: ["Running","Running","Running","Running","Running","Running","Running","Running","Running","Stopped"].sample,
+            date_of_commission: Faker::Date.between(3.years.ago, Date.today),
+            date_of_last_inspection: Faker::Date.between(2.years.ago, Date.today),
+            # certificate_of_operations:
 
-)
+        )
+    end
 
 end
 
+puts "//***************Battery Table seeded with #{Battery.count} records***************
 
+Battery.all.each do |bat|
+    if bat.building_type == "Residential"
+        floors = rand(1..10)
+    else 
+        floors = rand(10..30)
+    end
 
-# puts "//***************Battery Table seeded with #{Battery.count} records*****************"
+    rand(1..2).times do
+        Column.create!(
+            battery: bat, 
+            building_type: bat.building_type,
+            number_of_floors_served: floors, 
+            status: ["Running","Running","Running","Running","Running","Running","Running","Running","Running","Stopped"].sample,
+            information: Faker::Quote.famous_last_words, 
+            notes: Faker::Quote.famous_last_words
 
+        )
+    end
 
-# Column.create!(
+end
+puts "//***************Column Table seeded with #{Column.count} records*****************"
+Column.all.each do |col|
+    rand(1..5).times do
+        Elevator.create!(
+            column: col,
+            serial_numbers: rand(),
+            model: ["Kone", "thyssenkrupp", "Hitachi", "Otis Woldwide", "Schindler Group"].sample,
+            building_type: col.building_type,
+            status: ["Running","Running","Running","Running","Running","Running","Running","Running","Running","Stopped"].sample,
+            date_of_commissioning: Faker::Date.between(3.years.ago, Date.today), 
+            date_of_last_inspection: Faker::Date.between(2.years.ago, Date.today), 
+            # certificate_of_inspection:
+            information: Faker::Quote.famous_last_words,
+            notes: Faker::Quote.famous_last_words
 
-# )
+        )
+    end
 
-# end
-# puts "//***************Column Table seeded with #{Column.count} records*****************"
-
-# Elevator.create!(
-
-# )
-
-# end
-# puts "//***************Elevator Table seeded with #{Elevator.count} records*****************"
+end
+puts "//***************Elevator Table seeded with #{Elevator.count} records*****************"
 
 
 100.times do
