@@ -9,6 +9,9 @@ gem "bootstrap-social-rails"
 gem "jquery-rails"
 # gem "sass-rails"
 
+gem 'pg', '~> 1.4', '>= 1.4.4'
+gem 'secondbase', '~> 2.1'
+
 gem 'activeadmin'
 
 gem 'devise'
@@ -81,3 +84,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+

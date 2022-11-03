@@ -27,3 +27,5 @@ table.each do |row|
     )
 end
     puts "//*******************Employee Table seeded*******************"
+
+    
