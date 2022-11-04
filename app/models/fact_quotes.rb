@@ -1,0 +1,3 @@
+class FactQuote < ApplicationRecord
+
+end

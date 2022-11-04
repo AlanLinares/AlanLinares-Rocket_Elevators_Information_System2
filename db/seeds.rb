@@ -198,21 +198,21 @@ puts "//***************Elevator Table seeded with #{Elevator.count} records*****
     Quote.create!(
     
       building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
-      number_of_apartments: 
-      number_of_floors: 
-      number_of_basements: 
-      number_of_companies: 
-      number_of_parking_spots: 
-      number_of_elevators: 
-      number_of_corporations: 
-      max_occupancy: 
-      business_hours: 
+      number_of_apartments: Faker::Number.between(from: 1, to: 15),
+      number_of_floors: Faker::Number.between(from: 1, to: 20),
+      number_of_basements: Faker::Number.between(from: 1, to: 5),
+      number_of_companies: Faker::Number.between(from: 1, to: 10),
+      number_of_parking_spots: Faker::Number.between(from: 10, to: 100),
+      number_of_elevators: Faker::Number.between(from: 2, to: 20),
+      number_of_corporations: Faker::Number.between(from: 1, to: 10),
+      max_occupancy: Faker::Number.between(from: 6, to: 12),
+      business_hours: Faker::Time.between(from: DateTime.now -1, to: DateTime.now),
       quality:["Standard", "Premium", "Excelium"].sample,
-      elevator_amount: 
-      elevator_unit_price: 
-      elevator_total_price: 
-      installation_fees: 
-      final_price: 
+      elevator_amount: Faker::Number.between(from: 2, to: 20),
+      elevator_unit_price: Faker::Number.decimal(l_digits: 2),
+      elevator_total_price: Faker::Number.decimal(l_digits: 2),
+      installation_fees: Faker::Number.decimal(l_digits: 2),
+      final_price: Faker::Number.decimal(l_digits: 2),
     )
 end
 puts "//***************Quote Table seeded with #{Quote.count} records*****************"
