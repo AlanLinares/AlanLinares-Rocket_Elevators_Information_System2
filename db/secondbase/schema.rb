@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_03_205738) do
+ActiveRecord::Schema.define(version: 2022_11_04_180238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,27 +26,36 @@ ActiveRecord::Schema.define(version: 2022_11_03_205738) do
 
   create_table "fact_contacts", force: :cascade do |t|
     t.string "contact_id"
-    t.string "creation_date"
     t.string "company"
     t.string "email"
     t.string "project_name"
+    t.datetime "creation_date"
   end
 
-  create_table "fact_elevator", force: :cascade do |t|
+  create_table "fact_elevators", force: :cascade do |t|
     t.string "serial_number"
-    t.string "date_of_commissioning"
     t.string "building_id"
     t.string "customer_id"
     t.string "building_city"
+    t.datetime "date_of_commissioning"
   end
 
   create_table "fact_quotes", force: :cascade do |t|
     t.string "quote_id"
-    t.string "creation"
     t.string "email"
     t.string "nbElevator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "creation"
+  end
+
+  create_table "test", force: :cascade do |t|
+    t.datetime "creation_date"
+    t.string "company_name"
+    t.string "full_name_of_company_contact"
+    t.string "email_of_company_contact"
+    t.string "nb_elevators"
+    t.string "customer_city"
   end
 
 end
