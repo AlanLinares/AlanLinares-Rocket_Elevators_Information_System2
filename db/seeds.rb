@@ -150,7 +150,7 @@ Building.all.each do |b|
 
 end
 
-puts "//***************Battery Table seeded with #{Battery.count} records***************
+puts "//***************Battery Table seeded with #{Battery.count} records***************"
 
 Battery.all.each do |bat|
     if bat.building_type == "Residential"
@@ -198,21 +198,21 @@ puts "//***************Elevator Table seeded with #{Elevator.count} records*****
     Quote.create!(
     
       building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
-      number_of_apartments: Faker::Number.between(from: 1, to: 15),
-      number_of_floors: Faker::Number.between(from: 1, to: 20),
-      number_of_basements: Faker::Number.between(from: 1, to: 5),
-      number_of_companies: Faker::Number.between(from: 1, to: 10),
-      number_of_parking_spots: Faker::Number.between(from: 10, to: 100),
-      number_of_elevators: Faker::Number.between(from: 2, to: 20),
-      number_of_corporations: Faker::Number.between(from: 1, to: 10),
-      max_occupancy: Faker::Number.between(from: 6, to: 12),
-      business_hours: Faker::Time.between(from: DateTime.now -1, to: DateTime.now),
+      number_of_apartments: Faker::Number.between( 1,  15),
+      number_of_floors: Faker::Number.between( 1,  20),
+      number_of_basements: Faker::Number.between( 1,  5),
+      number_of_companies: Faker::Number.between( 1,  10),
+      number_of_parking_spots: Faker::Number.between( 10,  100),
+      number_of_elevators: Faker::Number.between( 2,  20),
+      number_of_corporations: Faker::Number.between( 1,  10),
+      max_occupancy: Faker::Number.between( 6,  12),
+      business_hours: Faker::Number.between( 10,  24),
       quality:["Standard", "Premium", "Excelium"].sample,
-      elevator_amount: Faker::Number.between(from: 2, to: 20),
-      elevator_unit_price: Faker::Number.decimal(l_digits: 2),
-      elevator_total_price: Faker::Number.decimal(l_digits: 2),
-      installation_fees: Faker::Number.decimal(l_digits: 2),
-      final_price: Faker::Number.decimal(l_digits: 2),
+      elevator_amount: Faker::Number.between( 2,  20),
+      elevator_unit_price: Faker::Number.between( 7000,  15000),
+      elevator_total_price: Faker::Number.between( 20000,  40000),
+      installation_fees: Faker::Number.between( 15000,  30000),
+      final_price: Faker::Number.between( 40000,  80000),
     )
 end
 puts "//***************Quote Table seeded with #{Quote.count} records*****************"

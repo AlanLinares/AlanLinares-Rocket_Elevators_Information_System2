@@ -1,3 +1,3 @@
-class FactContact < ApplicationRecord
+class FactContact < SecondBase::Base
 
 end

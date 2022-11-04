@@ -1,3 +1,2 @@
-class FactElevator < ApplicationRecord
-
+class FactElevator < SecondBase::Base
 end
