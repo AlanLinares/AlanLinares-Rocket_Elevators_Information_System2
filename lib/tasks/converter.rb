@@ -81,4 +81,3 @@ def move_elevator
 end
 move_elevator()
 puts "=== FactElevator imported #{FactElevator.count} ==="
-

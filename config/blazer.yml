@@ -2,7 +2,7 @@
 
 data_sources:
   main:
-    url: "postgres://alanlinares:password@localhost:5432/postgres"
+    url: "postgres://codeboxxmac@localhost:5432/postgres"
 
     # statement timeout, in seconds
     # none by default
