@@ -7,7 +7,7 @@ class AddAndRemoveColumnsFromBuildingDetails < ActiveRecord::Migration[5.2]
     add_column :building_details, :building_type, :string
     add_column :building_details, :architecture, :string
     add_column :building_details, :max_occupancy, :string
-    add_column :building_details, :construction_year, :string
+    add_column :building_details, :construction_year, :datetime
 
   end
 end

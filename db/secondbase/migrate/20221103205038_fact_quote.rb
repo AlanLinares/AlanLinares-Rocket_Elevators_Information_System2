@@ -9,3 +9,4 @@ class FactQuote < ActiveRecord::Migration[5.2]
       t.timestamps
   end
 end
+end
