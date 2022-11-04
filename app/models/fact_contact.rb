@@ -1,0 +1,3 @@
+class FactContact < ApplicationRecord
+
+end
