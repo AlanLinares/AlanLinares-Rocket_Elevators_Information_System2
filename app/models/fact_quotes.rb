@@ -1,3 +1,3 @@
-class FactQuote < ApplicationRecord
+class FactQuote < SecondBase::Base
 
 end

@@ -1,3 +1,3 @@
-class DimCustomers < ApplicationRecord
+class DimCustomers < SecondBase::Base
 
 end
